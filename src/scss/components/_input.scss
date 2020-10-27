@@ -1,0 +1,15 @@
+%form {
+	width: 100%;
+	height: 2.5rem;
+	padding: 0.7rem 0.5rem;
+	font: 14px $font-family;
+	border: 1px solid #b8bec4;
+	border-radius: 4px;
+}
+
+.form-input {
+	@extend %form;
+	&:focus {
+		outline: none;
+	}
+}

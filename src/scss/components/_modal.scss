@@ -1,0 +1,90 @@
+.modal {
+	visibility: hidden;
+	opacity: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: visibility 0s, opacity 0.5s;
+	z-index: 2;
+
+	&__content {
+		background-color: #fff;
+		width: 40%;
+		height: 50%;
+		border-radius: 5px;
+
+		.modal__header {
+			width: 100%;
+			height: 20%;
+			font: 21px 'Montserrat', sans-serif;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+
+			&__title {
+				margin: 0 1rem;
+			}
+
+			&__close {
+				margin: 0 1rem;
+				cursor: pointer;
+				color: rgb(58, 58, 58);
+				font-size: 30px;
+
+				&:hover {
+					color: #000;
+				}
+			}
+		}
+
+		.modal__body {
+			width: 100%;
+			height: 60%;
+			font: 16px 'Montserrat', sans-serif;
+			padding: 1rem 1rem;
+			overflow: hidden;
+			overflow-wrap: break-word;
+			word-wrap: break-word;
+
+			form {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				align-items: center;
+				height: 100%;
+				input {
+					&:not(:last-child) {
+						margin-bottom: 1rem;
+					}
+				}
+			}
+		}
+
+		.modal__footer {
+			width: 100%;
+			height: 20%;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: center;
+			padding-right: 1rem;
+
+			button {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+}

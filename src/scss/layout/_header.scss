@@ -1,0 +1,141 @@
+header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	padding: 5px 100px;
+	background-color: $header-background-color;
+
+	.logo {
+		margin-right: auto;
+
+		img {
+			width: 85px;
+			height: 85px;
+			cursor: pointer;
+		}
+	}
+
+	.navbar {
+		&__link {
+			display: flex;
+			list-style-type: none;
+
+			&.active {
+				width: 100%;
+			}
+		}
+
+		&__item {
+			padding: 0px 20px;
+
+			a {
+				transition: all 0.3s ease 0s;
+				text-decoration: none;
+				font: 20px $font-family;
+				font-weight: 500;
+				color: $logo-color;
+
+				&:hover {
+					color: $secondary-color;
+				}
+			}
+		}
+	}
+
+	.sub-menu {
+		width: 10rem;
+		display: block;
+		position: absolute;
+		border-top: 3px solid #eb3007;
+		background-color: #24252a;
+		z-index: 5;
+		transition: all 650ms ease;
+		visibility: hidden;
+		opacity: 0;
+		top: 60px;
+		right: 7.5rem;
+	}
+
+	.sub-menu li {
+		list-style-type: none;
+	}
+
+	.sub-menu li a {
+		font: 18px $font-family;
+		color: #fff !important;
+		width: 100%;
+		height: 100%;
+		display: block;
+		padding: 0.5em;
+	}
+
+	.sub-menu li a:hover {
+		background-color: $secondary-color;
+	}
+
+	.navbar__link li:hover > .sub-menu {
+		top: 4rem;
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.navbar__link i {
+		margin-left: 0.5rem;
+		color: $secondary-color;
+	}
+}
+
+.toggle {
+	position: fixed;
+	top: 47px;
+	right: 100px;
+
+	div.hamburger__line:nth-child(1) {
+		transform: rotate(-45deg) translate(0, 0);
+	}
+
+	div.hamburger__line:nth-child(3) {
+		display: none;
+		transition: all 0s ease 0s;
+	}
+
+	div.hamburger__line:nth-child(2) {
+		transform: rotate(45deg) translate(-5px, -6px);
+	}
+}
+
+.hamburger {
+	cursor: pointer;
+	z-index: 2;
+	display: none;
+
+	&__line {
+		width: 30px;
+		height: 3px;
+		background-color: $hamburger-color;
+		-webkit-border-radius: 20px;
+		border-radius: 20px;
+	}
+
+	&:hover &__line {
+		transition: all 0.3s ease 0s;
+		background-color: $hamburger-hover-color;
+	}
+
+	&__line:nth-child(2) {
+		margin: 5px 0 5px 0;
+	}
+
+	.times {
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+		color: #fff;
+		z-index: 3;
+		position: fixed;
+		cursor: pointer;
+		display: none;
+	}
+}

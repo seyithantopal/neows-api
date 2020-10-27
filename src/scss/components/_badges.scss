@@ -1,0 +1,17 @@
+%badge {
+	padding: 0.2rem 1rem;
+	color: #fff;
+	font: 14px $font-family;
+	border-radius: 0.3rem;
+	cursor: pointer;
+}
+
+.badge-success {
+	@extend %badge;
+	background-color: #28a746;
+}
+
+.badge-danger {
+	@extend %badge;
+	background-color: #dc3546;
+}

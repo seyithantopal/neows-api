@@ -1,0 +1,45 @@
+%btn {
+	//width: 100%;
+	padding: 0.7rem 2rem;
+	color: #fff;
+	border: 0;
+	font: 14px $font-family;
+	background-color: $secondary-color;
+	cursor: pointer;
+	border-radius: 5px;
+	/*border: 0;
+	background-color: $secondary-color;
+	color: #fff;
+	font: 18px 'Ubuntu Regular';
+	border-radius: 5px;
+	cursor: pointer;*/
+
+	&:hover {
+		background-color: lighten($secondary-color, 3%);
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.btn-primary {
+	@extend %btn;
+	background-color: $primary-color;
+	&:hover {
+		background-color: lighten($primary-color, 10%);
+	}
+}
+
+.btn-secondary {
+	@extend %btn;
+	background-color: $secondary-color;
+	&:hover {
+		background-color: lighten($secondary-color, 5%);
+	}
+}
+
+.btn-form {
+	@extend %btn;
+	padding: 0.5rem 2rem;
+}
