@@ -4,9 +4,21 @@ import List from './List';
 import { convertFeed, sortAsteroids } from '../../helpers/index';
 import { AsteroidContext } from '../../Context/AsteroidContext';
 import { StatusContext } from '../../Context/StatusContext';
+import Alert from '../Alert/Alert';
 
 const Index = () => {
 	const API_KEY = 'RtFkunRWvCnz2YALP9hdRHgnbfxhKHnD7EFrgFVr';
+
+	// Alert
+	const [alert, setAlert] = useState({
+		isOpen: false,
+		message: '',
+		type: '',
+	});
+	const changeStatus = () => {
+		if (alert.isOpen) setAlert({ ...alert, isOpen: false });
+		else setAlert({ ...alert, isOpen: true });
+	};
 
 	// States for search feature
 	const [search, setSearch] = useState('');
@@ -43,7 +55,12 @@ const Index = () => {
 		// validation
 		if (startDate === '' || endDate === '') {
 			/* eslint-disable no-console */
-			console.log('Please pick a date');
+			setAlert({
+				...alert,
+				isOpen: true,
+				message: 'Please pick a date',
+				type: 'danger',
+			});
 		} else {
 			const data = await axios
 				.get(
@@ -140,6 +157,16 @@ const Index = () => {
 						: filteredData
 				}
 			/>
+			{alert.isOpen ? (
+				<Alert
+					type={alert.type}
+					changeStatus={changeStatus}
+					isOpen={alert.isOpen}
+					message={alert.message}
+				/>
+			) : (
+				''
+			)}
 		</>
 	);
 };
