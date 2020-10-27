@@ -24,7 +24,7 @@ const Index = () => {
 		const fetchData = async () => {
 			const data = await axios
 				.get(
-					`https://api.nasa.gov/neo/rest/v1/neo/browse?page=0&size=5&api_key=${API_KEY}`,
+					`https://api.nasa.gov/neo/rest/v1/neo/browse?page=0&size=10&api_key=${API_KEY}`,
 				)
 				.then((res) => {
 					if (status.initial) {
